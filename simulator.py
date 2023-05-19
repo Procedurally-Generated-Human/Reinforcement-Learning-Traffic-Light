@@ -12,7 +12,11 @@ class Simulator():
     
 
     def update(self):
-        added_cars = np.random.rand(4) < self.accumlation
+        added_right_cars = np.random.randint(self.accumlation[0][0],self.accumlation[0][1]+1)
+        added_up_cars = np.random.randint(self.accumlation[1][0],self.accumlation[1][1]+1)
+        added_left_cars = np.random.randint(self.accumlation[2][0],self.accumlation[2][1]+1)
+        added_down_cars = np.random.randint(self.accumlation[3][0],self.accumlation[3][1]+1)
+        added_cars = np.array([added_right_cars, added_up_cars, added_left_cars, added_down_cars])
         self.cars += added_cars
         self.counter += 1
 
