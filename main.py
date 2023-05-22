@@ -4,10 +4,12 @@ from simulator import Simulator
 
 
 starting_cars = np.array([110,100,100,100])
-#accumulation = np.array([[0,1],[1,2],[0,3],[9,10]])
-accumulation = np.array([[0,0],[0,0],[0,0],[0,0]])
+accumulation = np.array([[0,1],[1,2],[0,3],[9,10]])
+
+traffic_paramaters = np.array([[0,5,10],[10,3,5],[5,7,10],[0,0,5]])
+
 tf = RRTrafficLight(10)
-sim = Simulator(starting_cars, accumulation, tf)
+sim = Simulator(traffic_paramaters, tf, 10)
 
 for i in range(100):
     sim.update()

@@ -2,13 +2,14 @@ import numpy as np
 from typing import List
 from traffic_light import BaseTrafficLight
 
+
 class Simulator():
     
-    def __init__(self, start:np.ndarray, accumulation:np.ndarray, traffic_light:BaseTrafficLight) -> None:
-        self.start = start
-        self.accumlation = accumulation
+    def __init__(self, traffic_paramaters:np.ndarray, traffic_light:BaseTrafficLight, decrease_rate=10) -> None:
+        self.cars = traffic_paramaters[:,0]
+        self.accumlation = traffic_paramaters[:,1:]
         self.traffic_light = traffic_light
-        self.cars = self.start
+        self.decrease_rate = decrease_rate
         self.counter = 0
     
 
@@ -23,7 +24,7 @@ class Simulator():
 
     def move_cars(self):
         current_light = self.traffic_light.decide(self.counter, self.cars)
-        self.cars[current_light] = max(self.cars[current_light] - 10,0)
+        self.cars[current_light] = max(self.cars[current_light] - self.decrease_rate,0)
 
 
     def update(self):
