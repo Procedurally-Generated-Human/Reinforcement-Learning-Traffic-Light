@@ -11,7 +11,7 @@ class BaseTrafficLight:
     
 
 
-class RRTrafficLight:
+class RRTrafficLight(BaseTrafficLight):
 
     def __init__(self, round_length) -> None:
         self.round_length = round_length

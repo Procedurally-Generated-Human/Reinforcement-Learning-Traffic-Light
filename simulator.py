@@ -27,10 +27,12 @@ class Simulator():
         self.cars[current_light] = max(self.cars[current_light] - self.decrease_rate,0)
 
 
-    def update(self):
-        self.add_new_cars()
-        self.move_cars()
-        self.counter += 1
+    def update(self, steps:int):
+        for i in range(steps):
+            self.add_new_cars()
+            self.move_cars()
+            self.counter += 1
+            print(self.cars)
 
 
 
