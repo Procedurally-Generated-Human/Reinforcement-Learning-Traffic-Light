@@ -1,5 +1,5 @@
 import numpy as np
-import torch.nn as nn
+
 
 
 class BaseTrafficLight:
@@ -25,12 +25,3 @@ class RLTrafficLight(BaseTrafficLight):
 
     def __init__(self) -> None:
         super().__init__()
-    
-    def setup_network(self):
-        self.network = nn.Sequential(
-            nn.Linear(4, 12),
-            nn.ReLU(),
-            nn.Linear(12, 4),
-            nn.ReLU(),
-            nn.Linear(4, 1),
-            nn.Sigmoid())

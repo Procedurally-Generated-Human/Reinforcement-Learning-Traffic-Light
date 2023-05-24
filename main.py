@@ -3,12 +3,12 @@ from traffic_light import BaseTrafficLight, RRTrafficLight
 from simulator import Simulator
 from animator import Animator
 
-traffic_paramaters = np.array([[72,5,10],[10,3,5],[5,7,10],[0,0,5]])
+traffic_paramaters = np.array([[10,5,10],[10,3,5],[5,7,10],[0,0,5]])
 
 tf = RRTrafficLight(10)
 sim = Simulator(traffic_paramaters, tf, 10)
+sim.numbers()
 ani = Animator(sim)
 ani.run()
 
 
- 

@@ -11,15 +11,16 @@ class Simulator():
         self.traffic_light = traffic_light
         self.decrease_rate = decrease_rate
         self.counter = 0
+        self.added_cars = np.zeros(4)
     
 
     def add_new_cars(self):
-        added_right_cars = np.random.randint(self.accumlation[0][0],self.accumlation[0][1]+1)
-        added_up_cars = np.random.randint(self.accumlation[1][0],self.accumlation[1][1]+1)
-        added_left_cars = np.random.randint(self.accumlation[2][0],self.accumlation[2][1]+1)
-        added_down_cars = np.random.randint(self.accumlation[3][0],self.accumlation[3][1]+1)
-        added_cars = np.array([added_right_cars, added_up_cars, added_left_cars, added_down_cars])
-        self.cars += added_cars
+        self.added_right_cars = np.random.randint(self.accumlation[0][0],self.accumlation[0][1]+1)
+        self.added_up_cars = np.random.randint(self.accumlation[1][0],self.accumlation[1][1]+1)
+        self.added_left_cars = np.random.randint(self.accumlation[2][0],self.accumlation[2][1]+1)
+        self.added_down_cars = np.random.randint(self.accumlation[3][0],self.accumlation[3][1]+1)
+        self.added_cars = np.array([self.added_right_cars, self.added_up_cars, self.added_left_cars, self.added_down_cars])
+        self.cars += self.added_cars
 
 
     def move_cars(self):
@@ -32,7 +33,8 @@ class Simulator():
             self.move_cars()
             self.counter += 1
             print(self.cars)
-
-
-
-
+            
+    def numbers(self):
+        Number = [0, 0, 0, 0]
+        Number = self.added_cars
+        return(Number)
