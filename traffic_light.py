@@ -25,3 +25,12 @@ class RLTrafficLight(BaseTrafficLight):
 
     def __init__(self) -> None:
         super().__init__()
+
+
+class MFTrafficLight(BaseTrafficLight):
+
+    def __init__(self) -> None:
+        super().__init__()
+    
+    def decide(self, counter: int, cars:np.ndarray) -> int:
+        return np.argmax(cars)

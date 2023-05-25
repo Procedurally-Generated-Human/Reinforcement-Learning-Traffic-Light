@@ -12,7 +12,7 @@ class Animator():
         
         
     def setup(self):
-        self.path = "D:\Theory\Reinforcement-Learning-Traffic-Light\crossroad.jpg"
+        self.path = "crossroad.jpg"
         self.load = Image.open(self.path)
         self.load = self.load.resize((475, 475))
         self.img  = ImageTk.PhotoImage(self.load)
@@ -22,7 +22,7 @@ class Animator():
         self.window.title("Traffic light")
         self.window.geometry("460x470")
         self.canvas = tk.Canvas(self.window, width=self.load.width, height=self.load.height)
-        self.canvas.create_image(0, 0, image=self.img, anchor=tk.NW)
+        #self.canvas.create_image(0, 0, image=self.img, anchor=tk.NW)
         
         circle_up = self.canvas.create_oval(160, 10, 300, 150)
         circle_left = self.canvas.create_oval(10, 160, 150, 300)
@@ -51,7 +51,7 @@ class Animator():
         self.added_cars_ani = [0, 0, 0 , 0]
         for i in range(101):
             self.sum = 0
-            self.window.after(5000)
+            self.window.after(500)
             self.window.update()
             self.simulator.update()
             self.added_cars_ani = self.simulator.numbers()

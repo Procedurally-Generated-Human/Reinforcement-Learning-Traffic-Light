@@ -12,6 +12,7 @@ class Simulator():
         self.decrease_rate = decrease_rate
         self.counter = 0
         self.added_cars = np.zeros(4)
+        self.current_light = 5
     
 
     def add_new_cars(self):
@@ -23,18 +24,30 @@ class Simulator():
         self.cars += self.added_cars
 
 
-    def move_cars(self):
-        self.current_light = self.traffic_light.decide(self.counter, self.cars)
-        self.cars[self.current_light] = max(self.cars[self.current_light] - self.decrease_rate,0)
-
-
     def update(self):
+            change = False
             self.add_new_cars()
-            self.move_cars()
+            if self.current_light != self.traffic_light.decide(self.counter, self.cars) and self.counter!=0:
+                change = True
+            self.current_light = self.traffic_light.decide(self.counter, self.cars)
+            if not change:
+                self.cars[self.current_light] = max(self.cars[self.current_light] - self.decrease_rate,0)
             self.counter += 1
             print(self.cars)
+    
+
+    def run(self, i):
+        while self.counter <= i:
+            for i in range(i):
+                self.update()
+        print(self.counter)
             
+
     def numbers(self):
         Number = [0, 0, 0, 0]
         Number = self.added_cars
         return(Number)
+    
+
+    def train_rl(self):
+        pass
