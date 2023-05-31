@@ -4,20 +4,12 @@ from simulator import Simulator
 from animator import Animator
 from trainer import Trainer
 
-traffic_paramaters = np.array([[2,1,1],[1,1,1],[0,1,1],[3,1,1]])
+traffic_paramaters = np.array([[10,1,3],[15,1,1],[5,2,2],[20,3,3]])
+decrease_rate = np.array([1,5,0,2])
 
-tf = RLTrafficLight()
-sim = Simulator(traffic_paramaters, tf, 5)
-trainer = Trainer(sim)
-trainer.run()
+tf = RRTrafficLight(4)
+sim = Simulator(traffic_paramaters, tf, decrease_rate)
 
-traffic_paramaters2 = np.array([[2,1,1],[1,1,1],[0,1,1],[3,1,1]])
-sim2 = Simulator(traffic_paramaters2, tf)
-sim2.run(10000)
-print(sim2.counter)
+ani = Animator(sim)
 
-traffic_paramaters3 = np.array([[2,1,1],[1,1,1],[0,1,1],[3,1,1]])
-sim3 = Simulator(traffic_paramaters3, tf, 5)
-ani = Animator(sim3)
 ani.run()
-

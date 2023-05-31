@@ -6,7 +6,7 @@ from traffic_light import BaseTrafficLight
 
 class Simulator():
     
-    def __init__(self, traffic_paramaters:np.ndarray, traffic_light:BaseTrafficLight, decrease_rate=10) -> None:
+    def __init__(self, traffic_paramaters:np.ndarray, traffic_light:BaseTrafficLight, decrease_rate:np.ndarray) -> None:
         self.traffic_paramaters = traffic_paramaters
         self.cars = traffic_paramaters[:,0]
         self.accumlation = traffic_paramaters[:,1:]
@@ -25,16 +25,16 @@ class Simulator():
         self.cars += self.added_cars
 
     def move_cars(self):
-            self.cars[self.current_light] = max(self.cars[self.current_light] - self.decrease_rate,0)
+            rate = self.decrease_rate[self.current_light]
+            self.cars[self.current_light] = max(self.cars[self.current_light] - rate, 0)
 
     def update(self):
             self.current_light = self.traffic_light.decide(self.counter, self.cars)
-            #print(self.counter, self.cars, self.current_light)
+            print(self.counter, self.cars, self.current_light)
             self.add_new_cars()
             self.move_cars()
             self.counter += 1
 
-    
 
     def run(self, i):
         print("--------")
