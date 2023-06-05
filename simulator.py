@@ -25,8 +25,7 @@ class Simulator():
         self.cars += self.added_cars
 
     def move_cars(self):
-            rate = self.decrease_rate[self.current_light]
-            self.cars[self.current_light] = max(self.cars[self.current_light] - rate, 0)
+            self.cars[self.current_light] = max(self.cars[self.current_light] - self.decrease_rate, 0)
 
     def update(self):
             self.current_light = self.traffic_light.decide(self.counter, self.cars)

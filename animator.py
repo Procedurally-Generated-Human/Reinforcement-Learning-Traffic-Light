@@ -79,27 +79,27 @@ class Animator():
              
             if(current_dir == 0):
                 self.arrow_right = self.canvas.itemconfig(self.arrow_right, fill="green")
-                self.canvas.itemconfig(self.text_number[0], text="\tRight: " + str(self.added_cars_ani[0]) + " decrese: " + str(self.simulator.decrease_rate[0]))
+                self.canvas.itemconfig(self.text_number[0], text="\tRight: " + str(self.added_cars_ani[0]) + " decrese: " + str(self.simulator.decrease_rate))
                 for q in range(1, 4):
                     self.canvas.itemconfig(self.text_number[q], text=self.direction[q] + str(self.added_cars_ani[q]))
             elif(current_dir == 1):
                 self.canvas.itemconfig(self.arrow_up, fill = "green")
                 self.canvas.itemconfig(self.text_number[0], text="Right: " + str(self.added_cars_ani[0]))
-                self.canvas.itemconfig(self.text_number[1], text="\tUp: " + str(self.added_cars_ani[1]) +  " decrese: " + str(self.simulator.decrease_rate[1]))
+                self.canvas.itemconfig(self.text_number[1], text="\tUp: " + str(self.added_cars_ani[1]) +  " decrese: " + str(self.simulator.decrease_rate))
                 self.canvas.itemconfig(self.text_number[2], text="Left: " + str(self.added_cars_ani[2]))
                 self.canvas.itemconfig(self.text_number[3], text="Down: " + str(self.added_cars_ani[3]))
             elif(current_dir == 2):
                 self.canvas.itemconfig(self.arrow_left, fill = "green")
                 self.canvas.itemconfig(self.text_number[0], text="Right: " + str(self.added_cars_ani[0]))
                 self.canvas.itemconfig(self.text_number[1], text="Up: " + str(self.added_cars_ani[1]))
-                self.canvas.itemconfig(self.text_number[2], text="\tLeft: " + str(self.added_cars_ani[2]) +  " decrese: " + str(self.simulator.decrease_rate[2]))
+                self.canvas.itemconfig(self.text_number[2], text="\tLeft: " + str(self.added_cars_ani[2]) +  " decrese: " + str(self.simulator.decrease_rate))
                 self.canvas.itemconfig(self.text_number[3], text="Down: " + str(self.added_cars_ani[3]))
             elif(current_dir == 3):
                 self.canvas.itemconfig(self.arrow_down, fill = "green")
                 self.canvas.itemconfig(self.text_number[0], text="Right: " + str(self.added_cars_ani[0]))
                 self.canvas.itemconfig(self.text_number[1], text="Up: " + str(self.added_cars_ani[1]))
                 self.canvas.itemconfig(self.text_number[2], text="Left: " + str(self.added_cars_ani[2]))
-                self.canvas.itemconfig(self.text_number[3], text="\tDown: " + str(self.added_cars_ani[3]) +  " decrese: " + str(self.simulator.decrease_rate[3]))
+                self.canvas.itemconfig(self.text_number[3], text="\tDown: " + str(self.added_cars_ani[3]) +  " decrese: " + str(self.simulator.decrease_rate))
             self.canvas.itemconfig(self.text_counter, text="counter: " + str(self.simulator.counter))
             
         self.window.mainloop()
