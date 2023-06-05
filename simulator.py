@@ -36,7 +36,7 @@ class Simulator():
 
 
     def run(self, i):
-        print("--------")
+        print("Step | Load | Next Light")
         while self.counter <= i:
             for i in range(i):
                 try:
