@@ -1,6 +1,7 @@
 # Traffic Light Simulator
 This is a reinforcement learning project that simulates traffic lights in an intersection. The goal of the project is to optimize the timing of traffic lights to reduce congestion and improve traffic flow using reinforcement learning techniques and comparing it to other, more conventional methods.
 
+![traffic light animation](https://github.com/Procedurally-Generated-Human/Reinforcement-Learning-Traffic-Light/blob/main/demonstration.gif)
 
 ## Methods
 3 traffic light controlling algorithms have been implemented, These are:
@@ -19,7 +20,7 @@ git clone https://github.com/Procedurally-Generated-Human/Reinforcement-Learning
 pip install -r requirements.txt
 ```
 3- Creating and running a simulation
-```
+```python
 import numpy as np
 from traffic_light import MFTrafficLight, RRTrafficLight, RLTrafficLight
 from simulator import Simulator
@@ -37,7 +38,7 @@ sim.run(100)
 ```
 
 4- Animating simulation
-```
+```python
 
 #index 0: inital load | index 1: min increase rate | index 2: max increase rate
 traffic_paramaters = np.array([[10,1,3],[15,1,1],[5,2,2],[20,3,3]])
